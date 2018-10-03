@@ -1,6 +1,0 @@
-Je créer un dossier, je lance l'invite de commande, je sauvegarde ma base de données, ce qui me permet de la restaurer : 
-
-Sauvegarde
-mysqldump --user=root --password=password --databases test_fil_rouge_restauration > C:\Backup\backup_fil_rouge.sql
-Restauration
-mysqldump --user=root --password=password --databases test_fil_rouge_restauration < C:\Backup\backup_fil_rouge.sql

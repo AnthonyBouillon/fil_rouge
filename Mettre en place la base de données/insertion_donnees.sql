@@ -30,7 +30,7 @@ INSERT INTO produit (description_court_produit, description_long_produit, prix_h
 ("Kaamelott intégral", "Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu ", 80 , '<img src="https://fakeimg.pl/250x100/">', 8, 22.5, 1, 1),
 ("Originals intégral", "si quisquam, ille sapiens fuit. Quo modo, ut alia omittam, mortem filii tulit! memineram Paulum, videram Galum, sed hi in pueris, Cato in perfecto et spectato viro.", 12, '<img src="https://fakeimg.pl/250x100/">', 22, 22.5, 2, 1),
 ("Super", "Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non ma", 9, '<img src="https://fakeimg.pl/250x100/">', 1, 22.5, 2, 1);
-# Ajouter un champ pour le nom ?
+
 INSERT INTO commande (date_commande, date_facturation, reduction, reglement, id_client) VALUES 
 ("2015/10/28", "2015/10/28", 5, 1, 1),
 ("2015/11/28", "2015/11/28", 5, 1, 2),
@@ -42,10 +42,16 @@ INSERT INTO livraison (date_livraison, id_commande) VALUES
 ("2018/07/12", 3);
 
 INSERT INTO Commande_Produit (id_commande, id_produit, prix_total, quantiter) VALUES 
-(1, 4, 50, 7);
+(1, 4, 50, 7),
+(2, 3, 50, 7),
+(3, 3, 50, 7);
 
-INSERT INTO Livraison_Produit (id_produit, id_livraison, quantiter) VALUES 
-(4, 1, 5);
+INSERT INTO Livraison_Produit (id_livraison, id_produit, quantiter) VALUES 
+(1, 1, 5),
+(1, 3, 5),
+(4, 2, 5);
 
-INSERT INTO Commercial_Commande (id_commande, id_commercial) VALUES 
-(1, 2);
+INSERT INTO Commercial_Commande (id_commercial, id_commande) VALUES 
+(1, 2),
+(1, 3),
+(1, 1);
