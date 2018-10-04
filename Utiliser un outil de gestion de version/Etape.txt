@@ -1,0 +1,8 @@
+Lien du dépot : https://github.com/AnthonyBouillon/fil_rouge
+
+- Créer un dépot sur github
+- git remote add -> link
+- git init
+- git add .
+- git commit -m "."
+- git push origin master
