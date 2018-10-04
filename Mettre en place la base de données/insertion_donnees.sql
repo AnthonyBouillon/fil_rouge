@@ -31,10 +31,10 @@ INSERT INTO produit (description_court_produit, description_long_produit, prix_h
 ("Originals intégral", "si quisquam, ille sapiens fuit. Quo modo, ut alia omittam, mortem filii tulit! memineram Paulum, videram Galum, sed hi in pueris, Cato in perfecto et spectato viro.", 12, '<img src="https://fakeimg.pl/250x100/">', 22, 22.5, 2, 1),
 ("Super", "Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non ma", 9, '<img src="https://fakeimg.pl/250x100/">', 1, 22.5, 2, 1);
 
-INSERT INTO commande (date_commande, date_facturation, reduction, reglement, id_client) VALUES 
-("2015/10/28", "2015/10/28", 5, 1, 1),
-("2015/11/28", "2015/11/28", 5, 1, 2),
-("2015/12/22", "2015/11/22", 5, 1, 3);
+INSERT INTO commande (date_commande, date_facturation, remise, reglement, etat_commande, id_client) VALUES 
+("2015/10/28", "2015/10/28", 5, 1, "Livré", 1),
+("2015/11/28", "2015/11/28", 5, 1, "Livré", 2),
+("2015/12/22", "2015/11/22", 5, 1, "Livré", 3);
 
 INSERT INTO livraison (date_livraison, id_commande) VALUES 
 ("2015/10/28", 1),
@@ -49,7 +49,7 @@ INSERT INTO Commande_Produit (id_commande, id_produit, prix_total, quantiter) VA
 INSERT INTO Livraison_Produit (id_livraison, id_produit, quantiter) VALUES 
 (1, 1, 5),
 (1, 3, 5),
-(4, 2, 5);
+(3, 2, 5);
 
 INSERT INTO Commercial_Commande (id_commercial, id_commande) VALUES 
 (1, 2),

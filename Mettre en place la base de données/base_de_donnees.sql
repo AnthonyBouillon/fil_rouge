@@ -45,7 +45,7 @@ CREATE TABLE Client(
         adresse_livraison_client   Varchar (150),
         coeff_client               INT,
         id_commercial              INT NOT NULL,
-	    FOREIGN KEY (id_commercial) REFERENCES Commercial(id_commercial)
+	     FOREIGN KEY (id_commercial) REFERENCES Commercial(id_commercial)
 );
 
 
@@ -58,11 +58,11 @@ CREATE TABLE Commande(
         id_commande       Int  Auto_increment  NOT NULL PRIMARY KEY,
         date_commande     DATE,
         date_facturation  DATE,
-        reduction         INT,
+        remise         INT,
         reglement 		  BOOL,
         etat_commande	  VARCHAR(150),
         id_client     	  INT NOT NULL,
-	    FOREIGN KEY (id_client) REFERENCES Client(id_client)
+	     FOREIGN KEY (id_client) REFERENCES Client(id_client)
 );
 
 #------------------------------------------------------------
@@ -73,7 +73,7 @@ CREATE TABLE Livraison(
         id_livraison   Int  Auto_increment  NOT NULL PRIMARY KEY,
         date_livraison DATETIME,
         id_commande    INT NOT NULL,
-		FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)
+		  FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)
 );
 
 #------------------------------------------------------------
@@ -93,7 +93,7 @@ CREATE TABLE Sous_rubrique(
         id_sous_rubrique  Int  Auto_increment  NOT NULL PRIMARY KEY,
         nom_sous_rubrique Varchar (255),
         id_rubrique       Int NOT NULL,
-		FOREIGN KEY (id_rubrique) REFERENCES Rubrique(id_rubrique)
+		  FOREIGN KEY (id_rubrique) REFERENCES Rubrique(id_rubrique)
 );
 
 #------------------------------------------------------------
@@ -110,8 +110,8 @@ CREATE TABLE Produit(
         tva                       Decimal (4,2),
         id_fournisseur            Int NOT NULL,
         id_sous_rubrique          Int NOT NULL,
-		FOREIGN KEY (id_fournisseur) REFERENCES Fournisseur(id_fournisseur),
-	    FOREIGN KEY (id_sous_rubrique) REFERENCES Sous_rubrique(id_sous_rubrique)
+		  FOREIGN KEY (id_fournisseur) REFERENCES Fournisseur(id_fournisseur),
+	     FOREIGN KEY (id_sous_rubrique) REFERENCES Sous_rubrique(id_sous_rubrique)
 );
 
 #------------------------------------------------------------
@@ -119,11 +119,11 @@ CREATE TABLE Produit(
 #------------------------------------------------------------
 
 CREATE TABLE Commande_Produit(
-		id_produit  Int NOT NULL,
+		  id_produit  Int NOT NULL,
         id_commande INT NOT NULL,
         prix_total  DECIMAL (15,3),
         quantiter   INT,
-	    PRIMARY KEY (id_produit, id_commande),
+	     PRIMARY KEY (id_produit, id_commande),
         FOREIGN KEY (id_produit) REFERENCES Produit(id_produit),
         FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)
 );
@@ -134,8 +134,8 @@ CREATE TABLE Commande_Produit(
 
 CREATE TABLE Livraison_Produit(
 		  id_livraison Int NOT NULL,
-          id_produit   Int NOT NULL,
-          quantiter    INT,
+        id_produit   Int NOT NULL,
+        quantiter    INT,
 		  PRIMARY KEY (id_livraison, id_produit),
 		  FOREIGN KEY (id_livraison) REFERENCES Livraison(id_livraison),
 		  FOREIGN KEY (id_produit) REFERENCES Produit(id_produit)	  
@@ -148,7 +148,7 @@ CREATE TABLE Livraison_Produit(
 
 CREATE TABLE Commercial_Commande(
 		  id_commercial Int NOT NULL,
-          id_commande   Int NOT NULL,
+        id_commande   Int NOT NULL,
 		  PRIMARY KEY (id_commande,id_commercial),
 		  FOREIGN KEY (id_commercial) REFERENCES Commercial(id_commercial),
 		  FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)

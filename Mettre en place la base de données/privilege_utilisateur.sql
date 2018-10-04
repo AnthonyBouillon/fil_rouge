@@ -30,3 +30,6 @@ GRANT SELECT, INSERT, UPDATE ON fil_rouge_test.* TO "gestion" IDENTIFIED BY "vJ3
 
 # Profil administrateur (tout les droits)
 GRANT ALL PRIVILEGES ON fil_rouge_test.* TO "administrateur" IDENTIFIED BY "C4rd23Db";
+
+# Voir les droits assignés à un utilisateur
+SHOW GRANTS FOR administrateur;
