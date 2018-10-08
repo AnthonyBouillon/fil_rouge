@@ -1,0 +1,4 @@
+"id_client";"nom_client";"prenom_client";"telephone_client";"email_client";"adresse_client";"adresse_facturation_client";"adresse_livraison_client";"statut_client";"coeff_client";"id_commercial"
+1;ROBERT;camille;"03-44-79-65-80";robert@outlook.fr;"41 rue Jobin 13003 Marseille";"41 rue Jobin 13003 Marseille";"41 rue Jobin 13003 Marseille";;5;1
+2;SIMON;chloé;"06-75-35-87-12";simon@outlook.fr;"19 rue des Augustins 33000 Bordeaux";"19 rue des Augustins 33000 Bordeaux";"19 rue des Augustins 33000 Bordeaux";;10;1
+3;FOURNIER;hugo;"03-44-01-01-14";fournier@outlook.fr;Marseille 13003 Marseille;Marseille 13003 Marseille;Marseille 13003 Marseille;;5;2

@@ -6,4 +6,4 @@ Sauvegarde
 mysqldump --user=root --password=leqxd777 --databases fil_rouge_test > C:\Backup\backup_fil_rouge.sql
 
 Restauration
-mysqldump --user=root --password=leqxd777 --databases fil_rouge_test < C:\Backup\backup_fil_rouge.sql
+mysql --user=root --password=leqxd777 fil_rouge_test < C:\Backup\backup_fil_rouge.sql

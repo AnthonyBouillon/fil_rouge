@@ -25,33 +25,28 @@ INSERT INTO sous_rubrique (nom_sous_rubrique, id_rubrique) VALUES
 ("Livre", 1),
 ("Vidéo", 1);
 
-INSERT INTO produit (description_court_produit, description_long_produit, prix_ht_produit, photo_produit, quantiter_total_produit, tva, id_fournisseur, id_sous_rubrique) VALUES
+INSERT INTO produit (description_court_produit, description_long_produit, prix_ht_produit, photo_produit, quantite_produit, tva, id_fournisseur, id_sous_rubrique) VALUES
 ("Le sorceleur tome 1", "His cognitis Gallus ut serpens adpetitus telo vel saxo iamque spes extremas opperiens et succurrens saluti suae quavis ratione colligi omnes iussit armatos et cum starent attoniti, districta dentium acie stridens adeste inquit viri fortes mihi periclitanti vobiscum.", 42, '<img src="https://fakeimg.pl/250x100/">', 5, 22.5, 1, 1),
 ("Kaamelott intégral", "Advenit post multos Scudilo Scutariorum tribunus velamento subagrestis ingenii persuasionis opifex callidus. qui eum adulabili sermone seriis admixto solus omnium proficisci pellexit vultu ", 80 , '<img src="https://fakeimg.pl/250x100/">', 8, 22.5, 1, 1),
 ("Originals intégral", "si quisquam, ille sapiens fuit. Quo modo, ut alia omittam, mortem filii tulit! memineram Paulum, videram Galum, sed hi in pueris, Cato in perfecto et spectato viro.", 12, '<img src="https://fakeimg.pl/250x100/">', 22, 22.5, 2, 1),
 ("Super", "Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non ma", 9, '<img src="https://fakeimg.pl/250x100/">', 1, 22.5, 2, 1);
 
-INSERT INTO commande (date_commande, date_facturation, remise, reglement, etat_commande, id_client) VALUES 
-("2015/10/28", "2015/10/28", 5, 1, "Livré", 1),
-("2015/11/28", "2015/11/28", 5, 1, "Livré", 2),
-("2015/12/22", "2015/11/22", 5, 1, "Livré", 3);
+INSERT INTO commande (date_commande, date_facturation, adresse_livraison, adresse_facturation, remise, reglement, etat_commande, id_client) VALUES 
+("2015/10/28", "2015/10/28", NULL, NULL, 5, 0, "En cours de livraison", 1),
+("2015/11/28", "2015/11/28", NULL, NULL, 5, 0, "En cours de livraison", 2),
+("2015/12/22", "2015/11/22", NULL, NULL, 5, 1, "Livré", 3);
 
 INSERT INTO livraison (date_livraison, id_commande) VALUES 
 ("2015/10/28", 1),
 ("2016/08/09", 2),
 ("2018/07/12", 3);
 
-INSERT INTO Commande_Produit (id_commande, id_produit, prix_total, quantiter) VALUES 
+INSERT INTO Commande_Produit (id_commande, id_produit, prix_total, quantite) VALUES 
 (1, 4, 50, 7),
 (2, 3, 50, 7),
 (3, 3, 50, 7);
 
-INSERT INTO Livraison_Produit (id_livraison, id_produit, quantiter) VALUES 
+INSERT INTO Livraison_Produit (id_livraison, id_produit, quantite) VALUES 
 (1, 1, 5),
 (1, 3, 5),
 (3, 2, 5);
-
-INSERT INTO Commercial_Commande (id_commercial, id_commande) VALUES 
-(1, 2),
-(1, 3),
-(1, 1);

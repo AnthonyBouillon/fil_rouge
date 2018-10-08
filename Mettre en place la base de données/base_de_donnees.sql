@@ -43,6 +43,7 @@ CREATE TABLE Client(
         adresse_client             Varchar (50),
         adresse_facturation_client Varchar (150),
         adresse_livraison_client   Varchar (150),
+        statut_client				  VARCHAR (50),
         coeff_client               INT,
         id_commercial              INT NOT NULL,
 	     FOREIGN KEY (id_commercial) REFERENCES Commercial(id_commercial)
@@ -58,6 +59,8 @@ CREATE TABLE Commande(
         id_commande       Int  Auto_increment  NOT NULL PRIMARY KEY,
         date_commande     DATE,
         date_facturation  DATE,
+        adresse_livraison DATE,
+        adresse_facturation DATE,
         remise         INT,
         reglement 		  BOOL,
         etat_commande	  VARCHAR(150),
@@ -106,7 +109,7 @@ CREATE TABLE Produit(
         description_long_produit  TEXT,
         prix_ht_produit           DECIMAL (4,2),
         photo_produit             Varchar (1500),
-        quantiter_total_produit   INT,
+        quantite_produit  INT,
         tva                       Decimal (4,2),
         id_fournisseur            Int NOT NULL,
         id_sous_rubrique          Int NOT NULL,
@@ -121,8 +124,8 @@ CREATE TABLE Produit(
 CREATE TABLE Commande_Produit(
 		  id_produit  Int NOT NULL,
         id_commande INT NOT NULL,
-        prix_total  DECIMAL (15,3),
-        quantiter   INT,
+        prix_total  DECIMAL (4,2),
+        quantite   INT,
 	     PRIMARY KEY (id_produit, id_commande),
         FOREIGN KEY (id_produit) REFERENCES Produit(id_produit),
         FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)
@@ -135,21 +138,9 @@ CREATE TABLE Commande_Produit(
 CREATE TABLE Livraison_Produit(
 		  id_livraison Int NOT NULL,
         id_produit   Int NOT NULL,
-        quantiter    INT,
+        quantite    INT,
 		  PRIMARY KEY (id_livraison, id_produit),
 		  FOREIGN KEY (id_livraison) REFERENCES Livraison(id_livraison),
 		  FOREIGN KEY (id_produit) REFERENCES Produit(id_produit)	  
 );
 
-
-#------------------------------------------------------------
-# Table: Commercial&Commande
-#------------------------------------------------------------
-
-CREATE TABLE Commercial_Commande(
-		  id_commercial Int NOT NULL,
-        id_commande   Int NOT NULL,
-		  PRIMARY KEY (id_commande,id_commercial),
-		  FOREIGN KEY (id_commercial) REFERENCES Commercial(id_commercial),
-		  FOREIGN KEY (id_commande) REFERENCES Commande(id_commande)
-);
