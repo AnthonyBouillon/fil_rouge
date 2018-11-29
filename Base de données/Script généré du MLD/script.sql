@@ -117,11 +117,11 @@ CREATE TABLE Sous_rubrique(
 CREATE TABLE Produit(
         id_produit                Int  Auto_increment  NOT NULL ,
         description_court_produit Varchar (150) ,
-        description_long_produit  Text NOT NULL ,
+        description_long_produit  TEXT ,
         prix_ht_produit           Decimal (4,2) ,
-        photo_produit             Varchar (150) NOT NULL ,
+        photo_produit             Varchar (150)  ,
         quantiter_total_produit   Int NOT NULL ,
-        tva_produit               Decimal (4,2) NOT NULL ,
+        tva_produit               Decimal (4,2)  ,
         id_fournisseur            Int NOT NULL ,
         id_sous_rubrique          Int NOT NULL
 	,CONSTRAINT Produit_PK PRIMARY KEY (id_produit)
